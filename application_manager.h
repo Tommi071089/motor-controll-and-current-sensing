@@ -34,7 +34,6 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdio.h>
 #include <stdbool.h>
-#include "app_management.h"
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/adc1.h"
 #include "mcc_generated_files/tmr1.h"

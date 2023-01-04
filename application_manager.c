@@ -85,20 +85,20 @@ void app_task(void) {
     newADC = (double) (ADC_TO_PWM_FACTOR * ADCBUF23);
     u16batAdc = ADCBUF22;
     u16currAdc = ADCBUF0;
-    dblNewPoti = (double)u16poti;
+    dblNewPoti = (double) u16poti;
     batteryMeasurement();
     changeDutyCycle(newADC);
 }
 
 void printData(void) {
-    
-    dblBatVoltage = (double) (u16batAdc * (MAX_VOLTAGE / ADC_MAX_COUNT) 
+    dblBatVoltage = (double) (u16batAdc * (MAX_VOLTAGE / ADC_MAX_COUNT)
             * VOLTAGE_DIVIDER_FACTOR);
-      dblAmpVoltage = (double)(u16currAdc*MAX_VOLTAGE/ADC_MAX_COUNT);
-              dblCurrent = (double)(dblAmpVoltage/AMP_FACTOR);
-    printf("ADC Percentage = %.2f%%,Battery Voltage = %.2f, "
-            "Current = %.2f,AmpVoltage=%.2f\n\r",
-           ADC_PERCENTAGE(dblNewPoti),dblBatVoltage,dblCurrent,dblAmpVoltage);
-    
+    dblAmpVoltage = (double) (u16currAdc * MAX_VOLTAGE / ADC_MAX_COUNT);
+    dblCurrent = (double) (dblAmpVoltage / SHUNT_RESISTOR) / (AMP_FACTOR);
+    printf("ADC Percentage = %.2f%%,Battery Voltage = %.2f%c, "
+            "Current = %.2f%c,AmpVoltage=%.2f%c\n\r",
+            ADC_PERCENTAGE(dblNewPoti), dblBatVoltage, 'V',
+            dblCurrent, 'A', dblAmpVoltage, 'V');
+
 
 }

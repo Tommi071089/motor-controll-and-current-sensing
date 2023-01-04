@@ -43,8 +43,8 @@
 #define BATTERY_SHUTDOWN       (300)  
 #define ADC_TO_PWM_FACTOR      (0.13f) 
 #define VOLTAGE_DIVIDER_FACTOR (4.955f)
-#define AMP_FACTOR             (2.2f)
-#define SHUNT_RESISTOR         (1)
+#define AMP_FACTOR             (100.0f)
+#define SHUNT_RESISTOR         (0.050f)
 #define ADC_PERCENTAGE(x)      (double)(((x)/(ADC_MAX_COUNT))*(100))
 
 
