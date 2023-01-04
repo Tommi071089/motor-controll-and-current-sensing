@@ -90,6 +90,7 @@ void app_task(void) {
     changeDutyCycle(newADC);
 }
 
+
 void printData(void) {
     dblBatVoltage = (double) (u16batAdc * (MAX_VOLTAGE / ADC_MAX_COUNT)
             * VOLTAGE_DIVIDER_FACTOR);
